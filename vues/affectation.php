@@ -1,5 +1,6 @@
 <?php
-require '../utils_inc/inc_pdo.php';
+require __DIR__.'/../utils_inc./inc_pdo.php';
+
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +23,7 @@ require '../utils_inc/inc_pdo.php';
           </a>
         </li>
         <li  class="active">
-          <a href="../vues/affection.php">
+          <a href="../vues/affectation.php">
             <span class="icon"><i class="fa-regular fa-user"></i></span>
           </a>
         </li>
@@ -50,7 +51,7 @@ require '../utils_inc/inc_pdo.php';
     <h2>Affectation des Dossards et Puces</h2>
     
     <!-- Formulaire d'affectation des dossards et puces RFID -->
-    <form method="post" action="affectation_action.php">
+    <form method="post" action="../affectation_action.php">
         <div class="form-group">
             <label for="id_equipe">Sélectionnez l'équipe :</label>
             <select class="form-control" name="id_equipe" id="id_equipe" required>

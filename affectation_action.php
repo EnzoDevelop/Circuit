@@ -1,5 +1,5 @@
 <?php
-    require 'dataBaseConn.php';
+    require __DIR__.'/utils_inc./inc_pdo.php';
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id_equipe = $_POST['id_equipe'];
@@ -17,7 +17,7 @@
         }
 
         // Redirige vers la page d'affectation avec un message de succès
-        header("Location: affectation.php?success=1");
+        header("Location: vues/affectation.php?success=1");
         exit;
     }
-?>
+
