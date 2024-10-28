@@ -9,6 +9,7 @@ require __DIR__.'/../utils_inc./inc_pdo.php';
     <meta charset="UTF-8">
     <title>Affectation des Dossards et Puces</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -33,7 +34,7 @@ require __DIR__.'/../utils_inc./inc_pdo.php';
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="chronometrage.php">
             <span class="icon"><i class="fa-solid fa-stopwatch"></i></span>
           </a>
         </li>
