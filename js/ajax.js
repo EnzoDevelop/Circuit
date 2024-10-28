@@ -19,7 +19,7 @@ function supprimerMembre(membreId) {
             } else {
                 // Pas de contributions, donc on peut désactiver
                 const xhr = new XMLHttpRequest();
-                xhr.open("POST", "routeur.php", true);
+                xhr.open("POST", "index.php", true);
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 
                 xhr.onreadystatechange = function () {

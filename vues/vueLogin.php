@@ -10,7 +10,7 @@
 <body class="container">
     <div class="row justify-content-center">
         <div class="col-md-4">
-            <form id="formLogin" action="routeur.php?route=traiterLogin" method="post">
+            <form id="formLogin" action="index.php?route=traiterLogin" method="post">
                 <h3 class="text-center">Identifiez-vous</h3>
                 <div class="form-group">
                     <label for="id">Login :</label><br>

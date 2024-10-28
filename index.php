@@ -8,35 +8,35 @@
 
 
 
-    // Syntaxe : routeur.php?route=maRoute&param1=valeurA&param2=valeurB ...
+    // Syntaxe : index.php?route=maRoute&param1=valeurA&param2=valeurB ...
 
     // Pas de route => login
 
 
-    // routeur.php
+    // index.php
     if (!isset($_GET['route'])){
         require "vues/vueLogin.php"; // Copier le code de la vue ici
         exit();
     }
 
-    // routeur.php?route=accueil
+    // index.php?route=accueil
     if ($_GET['route']=='accueil'){
         require "vues/vueAccueil.php"; // normalement : on passe toujours par un controleur
         exit();
     }
 
-    // routeur.php?route=listerContribs
+    // index.php?route=listerContribs
     // Retourne toutes les contributions
     if ($_GET['route']=='listerContribs'){
         // appel du contrôleur : il faut l'inclure
         // il faut être admin
         if (!estConnecte()){
-            header("location:routeur.php");
+            header("location:index.php");
             exit();
         }
 
         if (!aDroit("admin")){
-            header("location:routeur.php?route=accueil");
+            header("location:index.php?route=accueil");
             exit();
         }
         listerToutesContribs(); // le controleur fait le traitement puis "trasnmet les données" à la vue
@@ -48,15 +48,32 @@
         // appel du contrôleur : il faut l'inclure
         // il faut être admin
         if (!estConnecte()){
-            header("location:routeur.php");
+            header("location:index.php");
             exit();
         }
 
         if (!aDroit("admin")){
-            header("location:routeur.php?route=accueil");
+            header("location:index.php?route=accueil");
             exit();
         }
         listerTousMembres(); // le controleur fait le traitement puis "trasnmet les données" à la vue
+
+        exit();
+    }
+
+    if ($_GET['route']=='importation'){
+        // appel du contrôleur : il faut l'inclure
+        // il faut être admin
+        if (!estConnecte()){
+            header("location:index.php");
+            exit();
+        }
+
+        if (!aDroit("admin")){
+            header("location:index.php?route=accueil");
+            exit();
+        }
+        require "vues/import_vue.php"; // le controleur fait le traitement puis "trasnmet les données" à la vue
 
         exit();
     }
