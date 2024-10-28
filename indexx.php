@@ -17,7 +17,7 @@
                     <input type="text" name="login" id="id" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="mdp">Pass :</label><br>
+                    <label for="mdp">Mot de Passe :</label><br>
                     <input type="password" name="pass" id="mdp" class="form-control">
                 </div>
                 <br>
