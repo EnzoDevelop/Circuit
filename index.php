@@ -21,7 +21,8 @@
 
     // index.php?route=accueil
     if ($_GET['route']=='accueil'){
-        require "vues/vueAccueil.php"; // normalement : on passe toujours par un controleur
+        require __DIR__ . "/vues/accueil.html";
+        // normalement : on passe toujours par un controleur
         exit();
     }
 
