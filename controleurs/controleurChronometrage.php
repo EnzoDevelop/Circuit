@@ -41,3 +41,11 @@ function fetchEtapes($pdo) {
     $stmt = $pdo->query("SELECT id_etape, nom FROM etape ORDER BY rang");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function fetchEtapeById($pdo, $id_etape) {
+    $sql = "SELECT * FROM etape WHERE id_etape = :id_etape";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id_etape', $id_etape, PDO::PARAM_INT);
+    $stmt->execute();   
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}

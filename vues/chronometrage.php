@@ -1,22 +1,29 @@
 <?php
-  require __DIR__.'/../controleurs/controleurChronometrage.php';
-  $participantInfo = handleChronometrageRequest($pdo); 
-  $etapes = fetchEtapes($pdo);
+require __DIR__.'/../controleurs/controleurChronometrage.php';
+
+if (!isset($_GET['id_etape'])) {
+    header("Location: selection_etape.php");
+    exit();
+}
+
+$id_etape = $_GET['id_etape']; // Récupère l'étape sélectionnée
+$etapeInfo = fetchEtapeById($pdo, $id_etape); // Fonction pour récupérer les détails de l'étape sélectionnée
+
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Chronométrage des Concurrents</title>
+    <title>Chronométrage des Concurrents - Étape <?= htmlspecialchars($etapeInfo['nom']); ?></title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/navBar.css">
 </head>
 <body>
-    <!-- Barre de navigation -->
-    <div class="navigation">
+      <!-- Barre de navigation -->
+      <div class="navigation">
         <ul>
             <li><a href="accueil.html"><span class="icon"><i class="fa-solid fa-house"></i></span></a></li>
             <li><a href="../vues/affectation.php"><span class="icon"><i class="fa-regular fa-user"></i></span></a></li>
@@ -27,23 +34,11 @@
         </ul>
     </div>
     <br><br><br><br>
-    <div class="container mt-5">
-    <h2>Chronométrage des Concurrents</h2>
+<div class="container mt-5">
+    <h2>Chronométrage des Concurrents - Étape : <?= htmlspecialchars($etapeInfo['nom']); ?></h2>
     
     <!-- Formulaire de Chronométrage -->
-    <form method="post" action="chronometrage.php" id="chronometrage-form">
-        <div class="form-group">
-            <label for="id_etape">Sélectionnez l'Étape :</label>
-            <select class="form-control" name="id_etape" id="id_etape" required>
-                <option value="">-- Choisir une étape --</option>
-                <?php
-                foreach ($etapes as $etape) {
-                    echo "<option value=\"{$etape['id_etape']}\">{$etape['nom']}</option>";
-                }
-                ?>
-            </select>
-        </div>
-
+    <form method="post" action="chronometrage.php?id_etape=<?= $id_etape ?>" id="chronometrage-form">
         <div class="form-group">
             <label for="id_participant">Numéro de Puce (ID Participant) :</label>
             <input type="text" class="form-control" name="id_participant" id="id_participant" required>
@@ -67,6 +62,7 @@
 </div>
 
 <script>
+// JavaScript pour afficher/cacher le champ manuel
 document.getElementById('manual').addEventListener('click', function() {
     document.getElementById('manual-time-group').style.display = 'block';
 });
@@ -76,14 +72,13 @@ document.getElementById('auto').addEventListener('click', function() {
 });
 
 document.getElementById('chronometrage-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Empêche l'envoi immédiat pour afficher les données dans pop up
+    event.preventDefault();
 
     // Récupérer les infos du participant et l'étape
     const participantId = document.getElementById('id_participant').value;
-    const etapeSelect = document.getElementById('id_etape');
-    const etapeNom = etapeSelect.options[etapeSelect.selectedIndex].text;
     const mode = document.querySelector('input[name="mode"]:checked').value;
     const now = new Date().toLocaleString();
+    const etapeNom = <?= json_encode($etapeInfo['nom']); ?>;
 
     // Générer le message d'information
     let message = `Participant ID: ${participantId}\nÉtape: ${etapeNom}\n`;
@@ -93,7 +88,7 @@ document.getElementById('chronometrage-form').addEventListener('submit', functio
     // Affiche pop-up
     alert(message);
 
-    // Envoyer formulaire
+    // Envoyer le formulaire
     this.submit();
 });
 </script>

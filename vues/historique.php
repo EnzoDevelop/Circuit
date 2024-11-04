@@ -32,7 +32,7 @@ require __DIR__.'/../utils_inc./inc_pdo.php';
           </a>
         </li>
         <li>
-          <a href="chronometrage.php">
+          <a href="selection_etape.php">
             <span class="icon"><i class="fa-solid fa-stopwatch"></i></span>
           </a>
         </li>
