@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="historique.php">
             <span class="icon"><i class="fa-solid fa-gear"></i></span>
           </a>
         </li>
