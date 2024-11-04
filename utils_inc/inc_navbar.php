@@ -1,39 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/navBar.css" />
-    <title>Projet Circuit</title>
-  </head>
-  <body>
-    <div class="navigation">
-      <ul>
-        <li class="active"> 
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-house"></i></span>
+<?php // tirée de https://getbootstrap.com/docs/5.2/components/navbar/ ?>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="routeur.php?route=accueil">Accueil</a>
+        </li>        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Contributions
           </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="routeur.php?route=listerContribs">Voir toutes</a></li>
+            <li><a class="dropdown-item" href="#">Nada</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Nothing</a></li>
+          </ul>
         </li>
-        <li>
-          <a href="#">
-            <span class="icon"><i class="fa-regular fa-user"></i></span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-ranking-star"></i></span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-stopwatch"></i></ion-icon></span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-gear"></i></span>
-          </a>
+        <li class="nav-item">
+          <a class="nav-link " href="routeur.php?route=listerMembres">Membres</a>
         </li>
         <div class="indicator"><span></span></div>
       </ul>
