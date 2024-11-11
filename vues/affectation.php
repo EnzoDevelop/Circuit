@@ -34,7 +34,7 @@ require __DIR__.'/../utils_inc./inc_pdo.php';
           </a>
         </li>
         <li>
-          <a href="chronometrage.php">
+          <a href="selection_etape.php">
             <span class="icon"><i class="fa-solid fa-stopwatch"></i></span>
           </a>
         </li>
@@ -52,7 +52,7 @@ require __DIR__.'/../utils_inc./inc_pdo.php';
     <h2>Affectation des Dossards et Puces</h2>
     
     <!-- Formulaire d'affectation des dossards et puces RFID -->
-    <form method="post" action="../affectation_action.php">
+    <form method="post" action="../controleurs/controleurAffectationAction.php">
         <div class="form-group">
             <label for="id_equipe">Sélectionnez l'équipe :</label>
             <select class="form-control" name="id_equipe" id="id_equipe" required>
