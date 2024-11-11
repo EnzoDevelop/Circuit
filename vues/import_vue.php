@@ -12,6 +12,8 @@ $participants = $query->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Importation des données d'équipes et participants depuis CSV</title>
+    <script src="../js/update_abandon.js"></script>
+
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -133,7 +135,6 @@ $participants = $query->fetchAll(PDO::FETCH_ASSOC);
                 <th>Rfid</th>
                 <th>Abandon</th>
                 <th>ID Équipe</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -144,11 +145,8 @@ $participants = $query->fetchAll(PDO::FETCH_ASSOC);
                 <td><?php echo htmlspecialchars($participant['prenom']); ?></td>
                 <td><?php echo htmlspecialchars($participant['genre']); ?></td>
                 <td><?php echo htmlspecialchars($participant['rfid']); ?></td>
-                <td><?php echo htmlspecialchars($participant['abandon']); ?></td>
+                <td><input type="checkbox" class="abandon-checkbox" data-id="<?php echo $participant['id_participant']; ?>" <?php echo $participant['abandon'] ? 'checked' : ''; ?>></td>
                 <td><?php echo htmlspecialchars($participant['id_equipe']); ?></td>
-                <td>
-                    <a href="modifier_participant_vue.php?id=<?php echo $participant['id_participant']; ?>" class="btn">Modifier</a>
-                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>

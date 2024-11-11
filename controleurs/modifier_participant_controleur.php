@@ -8,7 +8,7 @@ if (!isset($_GET['id'])) {
     exit;
 }
 
-$id = (int)$_GET['id'];
+$id =  $_GET['id'];
 
 // Récupérer les informations du participant
 $query = $pdo->prepare("SELECT * FROM participant WHERE id_participant = :id");
@@ -16,7 +16,7 @@ $query->execute(['id' => $id]);
 $participant = $query->fetch(PDO::FETCH_ASSOC);
 
 if (!$participant) {
-    echo "Participant introuvable.";
+    echo "Participant introuvable:" .$id;
     exit;
 }
 
