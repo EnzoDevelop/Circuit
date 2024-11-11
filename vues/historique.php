@@ -27,13 +27,18 @@ require __DIR__.'/../utils_inc./inc_pdo.php';
           </a>
         </li>
         <li>
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-ranking-star"></i></span>
+          <a href="import_vue.php">
+            <span class="icon"><i class="fa-solid fa-people-group"></i></span>
           </a>
         </li>
         <li>
           <a href="selection_etape.php">
             <span class="icon"><i class="fa-solid fa-stopwatch"></i></span>
+          </a>
+        </li>
+        <li>
+          <a href="classement.php">
+            <span class="icon"><i class="fa-solid fa-ranking-star"></i></span>
           </a>
         </li>
         <li class="active">

@@ -1,7 +1,6 @@
 <?php
     require 'dataBaseConn.php';
 
-    // Génère des dossards et des puces RFID automatiquement
     $equipes = $pdo->query("SELECT id_equipe FROM equipe");
     $num_dossard = 1;
 

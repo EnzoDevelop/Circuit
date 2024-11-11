@@ -26,9 +26,10 @@ $etapeInfo = fetchEtapeById($pdo, $id_etape); // Fonction pour récupérer les d
       <div class="navigation">
         <ul>
             <li><a href="accueil.html"><span class="icon"><i class="fa-solid fa-house"></i></span></a></li>
-            <li><a href="../vues/affectation.php"><span class="icon"><i class="fa-regular fa-user"></i></span></a></li>
-            <li><a href="affectation.php"><span class="icon"><i class="fa-solid fa-ranking-star"></i></span></a></li>
-            <li class="active"><a href="#"><span class="icon"><i class="fa-solid fa-stopwatch"></i></span></a></li>
+            <li><a href="affectation.php"><span class="icon"><i class="fa-regular fa-user"></i></span></a></li>
+            <li><a href="import_vue.php"><span class="icon"><i class="fa-solid fa-ranking-star"></i></span></a></li>
+            <li class="active"><a href="import_vue.php"><span class="icon"><i class="fa-solid fa-stopwatch"></i></span></a></li>
+            <li><a href="classement.php"><span class="icon"><i class="fa-solid fa-ranking-star"></i></span></a></li>
             <li><a href="historique.php"><span class="icon"><i class="fa-solid fa-gear"></i></span></a></li>
             <div class="indicator"><span></span></div>
         </ul>
@@ -62,7 +63,6 @@ $etapeInfo = fetchEtapeById($pdo, $id_etape); // Fonction pour récupérer les d
 </div>
 
 <script>
-// JavaScript pour afficher/cacher le champ manuel
 document.getElementById('manual').addEventListener('click', function() {
     document.getElementById('manual-time-group').style.display = 'block';
 });
@@ -74,21 +74,17 @@ document.getElementById('auto').addEventListener('click', function() {
 document.getElementById('chronometrage-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Récupérer les infos du participant et l'étape
     const participantId = document.getElementById('id_participant').value;
     const mode = document.querySelector('input[name="mode"]:checked').value;
     const now = new Date().toLocaleString();
     const etapeNom = <?= json_encode($etapeInfo['nom']); ?>;
 
-    // Générer le message d'information
     let message = `Participant ID: ${participantId}\nÉtape: ${etapeNom}\n`;
     message += `Mode: ${mode === 'auto' ? 'Automatique' : 'Manuel'}\n`;
     message += `Temps enregistré : ${now}`;
 
-    // Affiche pop-up
     alert(message);
 
-    // Envoyer le formulaire
     this.submit();
 });
 </script>

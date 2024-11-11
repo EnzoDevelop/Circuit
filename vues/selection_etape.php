@@ -18,9 +18,10 @@ $etapes = fetchEtapes($pdo);
     <div class="navigation">
         <ul>
             <li><a href="accueil.html"><span class="icon"><i class="fa-solid fa-house"></i></span></a></li>
-            <li><a href="../vues/affectation.php"><span class="icon"><i class="fa-regular fa-user"></i></span></a></li>
-            <li><a href="affectation.php"><span class="icon"><i class="fa-solid fa-ranking-star"></i></span></a></li>
+            <li><a href="affectation.php"><span class="icon"><i class="fa-regular fa-user"></i></span></a></li>
+            <li><a href="import_vue.php"><span class="icon"><i class="fa-solid fa-people-group"></i></span></a></li>
             <li class="active"><a href="#"><span class="icon"><i class="fa-solid fa-stopwatch"></i></span></a></li>
+            <li><a href="classement.php"><span class="icon"><i class="fa-solid fa-ranking-star"></i></span></a></li>
             <li><a href="historique.php"><span class="icon"><i class="fa-solid fa-gear"></i></span></a></li>
             <div class="indicator"><span></span></div>
         </ul>

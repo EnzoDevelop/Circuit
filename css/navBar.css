@@ -1,3 +1,4 @@
+/* Gardez les styles de base */
 * {
     margin: 0;
     padding: 0;
@@ -10,8 +11,9 @@ body {
     background: var(--clr);
 }
 
+/* Ajustez la largeur du conteneur de navigation pour contenir tous les éléments */
 .navigation {
-    width: 420px;
+    width: 420px; /* Ajustée pour l'espacement optimal */
     height: 70px;
     background: #209cff;
     display: flex;
@@ -25,43 +27,51 @@ body {
     transform: translateX(-50%);
 }
 
+/* Ajustez les éléments pour occuper l'espace */
 .navigation ul {
     position: relative;
     display: flex;
-    width: 350px;
+    justify-content: space-between; /* Équilibre les boutons dans la navigation */
+    width: 100%; /* Utilisation de la largeur maximale du conteneur */
+    padding: 0 10px; /* Ajout d'un léger padding */
 }
+
 .navigation ul li {
     position: relative;
     list-style: none;
-    width: 70px;
+    width: 60px; /* Réduit pour que tous les boutons soient centrés */
     height: 70px;
     z-index: 1;
+    display: flex;
+    justify-content: center;
 }
+
 .navigation ul li a {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 }
+
 .navigation ul li a .icon {
-    position: relative;
-    display: block;
     font-size: 1.5em;
     color: #fff;
     line-height: 75px;
     opacity: 0.75;
     transition: 0.5s;
 }
+
 .navigation ul li.active a .icon {
     opacity: 1;
     color: #209cff;
     transform: translateY(-8px);
 }
+
+/* Ajustez la largeur de l'indicateur pour bien couvrir chaque élément */
 .indicator {
     position: absolute;
     top: -10px;
-    width: 70px;
+    width: 60px; /* Correspond à la largeur des éléments */
     height: 70px;
     background: var(--clr);
     border-bottom-left-radius: 35px;
@@ -74,7 +84,7 @@ body {
     content: '';
     position: absolute;
     top: 4px;
-    left: -25.75px;
+    left: -25px;
     width: 20px;
     height: 20px;
     background: transparent;
@@ -86,7 +96,7 @@ body {
     content: '';
     position: absolute;
     top: 4px;
-    right: -25.75px;
+    right: -25px;
     width: 20px;
     height: 20px;
     background: transparent;
@@ -96,13 +106,15 @@ body {
 .indicator span {
     position: absolute;
     left: -1px;
-    width: 60px;
+    width: 50px; /* Réduit pour centrer dans les éléments */
     height: 60px;
     border: 4px solid #209cff;
     border-radius: 50%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     transform: scale(0.85);
 }
+
+/* Ajoutez les déplacements de l'indicateur pour le 6ème bouton */
 .navigation ul li:nth-child(2).active ~ .indicator {
     transform: translateX(calc(70px * 1));
 }
@@ -114,4 +126,7 @@ body {
 }
 .navigation ul li:nth-child(5).active ~ .indicator {
     transform: translateX(calc(70px * 4));
+}
+.navigation ul li:nth-child(6).active ~ .indicator {
+    transform: translateX(calc(70px * 5));
 }

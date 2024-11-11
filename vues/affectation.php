@@ -29,8 +29,8 @@ require __DIR__.'/../utils_inc./inc_pdo.php';
           </a>
         </li>
         <li>
-          <a href="#">
-            <span class="icon"><i class="fa-solid fa-ranking-star"></i></span>
+          <a href="import_vue.php">
+            <span class="icon"><i class="fa-solid fa-people-group"></i></span>
           </a>
         </li>
         <li>
@@ -39,7 +39,12 @@ require __DIR__.'/../utils_inc./inc_pdo.php';
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="classement.php">
+            <span class="icon"><i class="fa-solid fa-ranking-star"></i></span>
+          </a>
+        </li>
+        <li>
+          <a href="historique.php">
             <span class="icon"><i class="fa-solid fa-gear"></i></span>
           </a>
         </li>
@@ -51,7 +56,6 @@ require __DIR__.'/../utils_inc./inc_pdo.php';
 <div class="container mt-5">
     <h2>Affectation des Dossards et Puces</h2>
     
-    <!-- Formulaire d'affectation des dossards et puces RFID -->
     <form method="post" action="../controleurs/controleurAffectationAction.php">
         <div class="form-group">
             <label for="id_equipe">Sélectionnez l'équipe :</label>
@@ -77,7 +81,6 @@ require __DIR__.'/../utils_inc./inc_pdo.php';
         <h4>Affectation des Puces RFID pour chaque Participant</h4>
         <div id="participants-list">
             <?php
-            // Récupère les participants sans puces et les affiche
             $participants = $pdo->query("SELECT id_participant, nom, prenom FROM participant WHERE rfid IS NULL");
             while ($participant = $participants->fetch(PDO::FETCH_ASSOC)) {
                 echo "<div class='form-group'>";
@@ -92,7 +95,6 @@ require __DIR__.'/../utils_inc./inc_pdo.php';
     </form>
 </div>
 
-<!-- Script pour la navigation -->
 <script>
     let list = document.querySelectorAll('.navigation li');
     function activeLink(){

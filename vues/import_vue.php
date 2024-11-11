@@ -11,6 +11,10 @@ $participants = $query->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/navBar.css">
     <title>Importation des données d'équipes et participants depuis CSV</title>
     <script src="../js/update_abandon.js"></script>
 
@@ -113,14 +117,50 @@ $participants = $query->fetchAll(PDO::FETCH_ASSOC);
     </style>
 </head>
 <body>
-
+    <!-- Barre de navigation -->
+    <div class="navigation">
+    <ul>
+        <li> 
+          <a href="accueil.html">
+            <span class="icon"><i class="fa-solid fa-house"></i></span>
+          </a>
+        </li>
+        <li >
+          <a href="affectation.php">
+            <span class="icon"><i class="fa-regular fa-user"></i></span>
+          </a>
+        </li>
+        <li class="active">
+          <a href="#">
+            <span class="icon"><i class="fa-solid fa-people-group"></i></span>
+          </a>
+        </li>
+        <li>
+          <a href="selection_etape.php">
+            <span class="icon"><i class="fa-solid fa-stopwatch"></i></span>
+          </a>
+        </li>
+        <li>
+          <a href="classement.php">
+            <span class="icon"><i class="fa-solid fa-ranking-star"></i></span>
+          </a>
+        </li>
+        <li>
+          <a href="historique.php">
+            <span class="icon"><i class="fa-solid fa-gear"></i></span>
+          </a>
+        </li>
+        <div class="indicator"><span></span></div>
+    </ul>
+</div>
+<br><br><br><br>
 <div class="container">
     <h2>Importer un fichier CSV pour ajouter des équipes et participants</h2>
     <form action='./controleurs/import_controleur.php' method="post" enctype="multipart/form-data">
         <input type="file" name="csv_file" accept=".csv" required>
         <button type="submit" name="import_csv" class="btn-submit">Importer</button>
     </form>
-    <a href="index.php?route=accueil" class="btn-back">Retour à l'accueil</a>
+    <a href="accueil.html" class="btn-back">Retour à l'accueil</a>
 </div>
 
 <div class="container table-container">
